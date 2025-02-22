@@ -1,7 +1,17 @@
 import './style.css';
 import viteLogo from '/vite.svg';
 import typescriptLogo from '/typescript.svg';
+import { createSignal, createEffect } from './signals.ts';
 
+function setupCounter(element: HTMLButtonElement) {
+  const [count, setCount] = createSignal<number>(0);
+  
+  element.addEventListener('click', () => setCount(count() + 1))
+
+  createEffect(() => {
+		element.innerHTML = `Count is ${count()}`;
+  });
+}
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
