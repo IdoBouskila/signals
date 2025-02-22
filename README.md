@@ -1,10 +1,18 @@
-# SignalsJS  
+# TS Signals
 
 A basic implementation of signals for studying and fun purposes
 
-## Usage  
+## API
 
-### Basic Example  
+- `createSignal<T>(value: T) => [get: () => T, set: (newValue: T) => void]`:
+Creates a reactive signal.  
+
+- `createEffect(callback: () => void)`:
+Runs a callback whenever the signal it depends on changes.
+
+## Usage
+
+### Basic Example
 
 ```ts
 const [count, setCount] = createSignal(0);
@@ -16,7 +24,7 @@ createEffect(() => {
 setCount(1); // Logs: "Count is: 1"
 ```
 
-### DOM Example  
+### DOM Example
 
 ```ts
 function setupCounter(button) {
@@ -29,11 +37,3 @@ function setupCounter(button) {
   });
 }
 ```
-
-## API  
-
-- `createSignal<T>(value: T) => [get: () => T, set: (newValue: T) => void]`:
-Creates a reactive signal.  
-
-- `createEffect(callback: () => void)`:
-Runs a callback whenever the signal it depends on changes.
