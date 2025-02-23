@@ -8,7 +8,7 @@ A basic implementation of signals for studying and fun purposes
 Creates a reactive signal.  
 
 - `createEffect(callback: () => void)`:
-Runs a callback whenever the signal it depends on changes.
+Runs a callback whenever the signals it depends on changes.
 
 ## Usage
 
